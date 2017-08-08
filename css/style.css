@@ -1,0 +1,224 @@
+body {
+	font-size: 8pt;
+	font-family: arial;
+	font-style: normal;
+	/*font-weight: 300;*/
+}
+
+h1 {
+	display:inline-block;	
+	margin-right: 40px; 
+	font-family: arial;   
+    font-size: 8pt;
+	/*padding: 20px;*/
+	/*text-align: left;*/
+}
+h2{
+	display:inline-block;       
+    font-size: 10pt;
+	font-family: arial;
+	font-weight: 300;
+}
+h3 {
+	display:inline-block;
+	font-size: 8pt;
+	font-family: arial;
+	font-weight: normal;
+	margin-left: 0px;
+}
+h4 {
+	display:inline-block;
+	margin-left:40px;
+	font-size: 8pt;
+	font-family: arial;
+	font-weight: normal;
+}
+h5{
+	display:inline-block;
+	margin-top: 5px;
+	font-size: 10pt;
+	font-family: arial;
+	font-weight: normal;
+}
+h6 {
+	display:inline-block;
+	margin-top: 5px;
+	margin-left:70px;
+	font-size: 10pt;
+	font-family: arial;
+	font-weight: normal;
+}
+
+
+
+.descricao {
+	display:inline-block;
+	width: 400px; 
+	height: 70px;
+	}
+	
+.filtromanual {
+	display:inline-block;
+	width: 400px; 
+	height: 70px;
+	margin-left: 70px;
+	}
+
+.simb {
+	display:inline-block;
+}
+
+.symbbox {
+	display:inline-block;
+	width: 290px; 
+	height: 150px;
+	margin-top: 10px;
+	margin-left: 70px;
+	}
+
+
+	
+#addnewrule {
+	height: auto;
+}
+
+#addnsc {
+	margin-top: 20px;
+}
+
+#editsymb {
+	text-align: center;
+}
+
+#editsymbwindow {
+	margin-top: 10px;
+}
+
+#sencselsymb {
+	margin-top: 10px;
+	margin-left: 15px;
+}
+
+.oksymb {
+	margin-top: 10px;
+}
+
+.lblinter {
+	margin-left: 50px;
+}
+
+.lblcolorramp {
+	margin-left: 50px;
+}
+.colorramp {
+	margin-bottom: 0px;
+}
+.family {
+	margin-left: 90px;
+}
+.familyfilha {
+	margin-left: 90px;
+}
+
+.ui-slider .ui-slider-handle {
+    height: 15px;
+    width: 5px;
+    padding-left: 5px; //add this
+}
+
+#editlblwindow {
+	height: 150px;
+}
+
+#editcell1, #editcell2, #editcell3, #editcell4, #editcell5 {
+	display: inline;
+}
+
+
+#abc{
+	margin-left: 75px;
+}
+#abcfilha{
+	margin-left: 75px;
+}
+#vazio{
+	margin-left: 115px;
+}
+#lblsize {
+	margin:500px;
+}
+
+#picker {
+	margin:10px;
+}
+
+.oklbl{
+	margin-top: 10px;
+}
+
+#sizebubcontrol{
+	width: 430px;
+	margin-left: 50px;
+}
+
+#groupclus{
+	display: inline;	
+}
+
+#clusstroke{
+	width: 100px;	
+}
+
+#cluscolours {
+	margin-left: 50px;
+}
+
+#chkfilterman {
+	margin-left: 50px;
+}
+
+#divsecfield {
+	display:inline;
+}
+
+#propbub {
+	/*display: inline;*/
+	margin-left: 60px;
+}
+#propbubfilha {
+	/*display: inline;*/
+	margin-left: 60px;
+}
+
+#showlblscl {
+	margin-left: 90px;
+}
+
+#showlblsclfilha {
+	margin-left: 90px;
+}
+#tabela {
+	display: inline;
+}
+#norin {
+	display: inline;
+}
+
+.custom-combobox {
+position: relative;
+display: inline-block;
+}
+.custom-combobox-toggle {
+position: absolute;
+top: 0;
+bottom: 0;
+margin-left: -1px;
+padding: 0;
+}
+.custom-combobox-input {
+margin: 0;
+padding: 3px;
+width: 80px;
+}
+
+

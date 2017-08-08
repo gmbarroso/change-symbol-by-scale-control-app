@@ -1,0 +1,1677 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Master</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="./js/colpick/colpick.js" type="text/javascript"></script>
+
+<script id="jquery-colorramp-script" src="./colorramp/jquery-colorramp/main.js" ></script>
+
+<script src="./js/javascriptRule.js" type="text/javascript"></script>
+<script src="./js/javascript.js" type="text/javascript"></script>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/colpick/colpick.css">
+
+<link id="jq-colorramp-ColorRampStyleSheet" rel="stylesheet" href="./colorramp/jquery-colorramp/style.css" type="text/css">
+
+<!-- <script src="./js/collorpicker-master/evol.colorpicker.js" type="text/javascript"></script> -->
+<!-- <link rel="stylesheet" href="./css/collorpicker-master/evol.colorpicker.css"> -->
+
+<script>
+	
+</script>
+</head>
+<body>
+	<button id="botao">Properties</button>
+	<div id="janela" title="Properties">
+		<div id="name">
+			<h1>
+				<label>Name:</label>
+				<input type="text" id="txtbox" value="">
+			</h1>
+			<h2 class="ui-widget">
+				<label>Change Group:</label> 
+				<select id="chggrp">
+					<option value="">Select group...</option>
+					<option value="poligonos">Polygons</option>
+					<option value="lineas">Lines</option>
+					<option value="puntos">Points</option>
+				</select>
+			</h2>
+			<p>Description: <br> <textarea rows="2" cols="59" id="txtarea"></textarea></p>
+		</div>
+		<div id="addnewrule">
+			<div id="rules"><br>
+				<p>Symbology controlled by scale:</p>
+				<div id="rulemaster" style='height:auto;'>	
+						<!-- <p>Symbology controlled by scale:</p>
+					<input type="checkbox" id="si">	
+						<label for="si">Yes</label>	
+						<input type="checkbox" id="no">	
+						<label for="no">No</label>	
+						<br><br> -->				
+					<div id="escalas">
+						<h3 class="ui-widget">
+							<label>Minimum Scale:</label> 
+							<select class="escalamin">
+								<option value="-1">Select one...</option>
+								<option value="0">0</option>
+								<option value="1000">1.000</option>
+								<option value="2500">2.500</option>
+								<option value="5000">5.000</option>
+								<option value="10000">10.000</option>
+								<option value="20000">20.000</option>
+								<option value="30000">30.000</option>
+								<option value="40000">40.000</option>
+								<option value="50000">50.000</option>
+								<option value="60000">60.000</option>
+								<option value="70000">70.000</option>
+								<option value="80000">80.000</option>
+								<option value="90000">90.000</option>
+								<option value="100000">100.000</option>
+								<option value="200000">200.000</option>
+								<option value="250000">250.000</option>
+								<option value="500000">500.000</option>
+								<option value="1000000">1.000.000</option>
+							</select>
+						</h3>
+						<h4 class="ui-widget">
+							<label>Maximum Scale:</label> 
+							<select class="escalamax">
+								<option value="-1">Select one...</option>
+								<option value="0">0</option>
+								<option value="1000">1.000</option>
+								<option value="2500">2.500</option>
+								<option value="5000">5.000</option>
+								<option value="10000">10.000</option>
+								<option value="20000">20.000</option>
+								<option value="30000">30.000</option>
+								<option value="40000">40.000</option>
+								<option value="50000">50.000</option>
+								<option value="60000">60.000</option>
+								<option value="70000">70.000</option>
+								<option value="80000">80.000</option>
+								<option value="90000">90.000</option>
+								<option value="100000">100.000</option>
+								<option value="200000">200.000</option>
+								<option value="250000">250.000</option>
+								<option value="500000">500.000</option>
+								<option value="1000000">1.000.000</option>
+							</select>
+						</h4>
+					</div>
+					<div id="simb_lbl">
+						<h5>
+							<label>Simbolized by:</label>
+							<button class="simb">Choose type</button>
+						</h5>
+						<div id="simbwindow" title="Choose type" >
+							<form>
+								<div id="radio" >
+									<input type="radio" id="sencillo" name="radio"	checked="checked"><label for="sencillo">Simple</label>
+									<input type="radio" id="categorias" name="radio"><label	for="categorias">Category</label> 
+									<input type="radio" id="bubble" name="radio"><label for="bubble">Bubble</label>
+									<!--<input type="radio" id="cluster" name="radio"><label for="cluster">Cluster</label>-->
+									<!--<input type="radio"	id="mapasdecalor" name="radio"><label	for="mapasdecalor">Mapas de Calor</label>-->
+								</div>
+							</form> <br>
+							<button id="editsymb">Edit Symbol Type</button> <br>
+								<div id="editsymbwindow" title="Edit Symbol Type">
+									<div style = "display: none" id="ptnstipus">
+										<label>Select symbol</label>
+										<select id="symbsenc">
+											<option value="-1">Select group...</option>
+											<option value="star">Star</option>
+											<option value="circle">Circle</option>
+											<option value="square">Square</option>
+											<option value="square">Diamond</option>
+											<option value="triangle">Triangle</option>
+											<option value="x">X</option>
+											<option value="mais">+</option>
+										</select>
+									</div><br>
+									<button id="pickersencrell">Fill Colour</button>
+									<button id="pickersencbord">Stroke Colour</button>
+									<button id="pickersencbordsec">Border Colour</button> <br><br>									
+									<div id="sencstroke">
+										<label for="txtsencstroke">Stroke</label>
+										<input type="text" id="txtsencstroke" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="sencstrokeslider"></div>
+									</div>
+									<div style = "display: none" id="sencsize">
+										<label for="txtsencsize">Symbol Size</label>
+										<input type="text" id="txtsencsize" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="sencsizeslider"></div>
+									</div>
+									<div style = "display: none" id="sencstrokesec">
+										<label for="txtsencstrokesec">Line Border</label>
+										<input type="text" id="txtsencstrokesec" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="sencstrokesecslider"></div>
+									</div>
+									<div id="senctransp">
+										<label for="txtsenctransp">Transparency</label>
+										<input type="text" id="txtsenctransp" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="senctranspslider"></div>
+									</div>
+									<div style = "display: none" id="senctranspin">
+										<label for="txtsenctranspin">Transparency</label>
+										<input type="text" id="txtsenctranspin" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="senctranspinslider"></div>
+									</div> <br>
+									<input type="checkbox" id="dashline">
+									<label for="dashline">Dash Array:</label>
+									<div style="display: none" id="linedash">										
+										<select class="dash">
+											<option value="0">0</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+										</select>
+										<select class="array">
+											<option value="0">0</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+										</select>									
+									</div>
+<!-- 									<input type="checkbox" id="sencselsymb"> <label for="sencselsymb">Select Symbol</label> <br> -->
+<!-- 									<div style="display: none" id="sencselect"> -->
+<!-- 									<div id="sencselect">									 -->									
+<!-- 										<button id="sencselsymb">Select Symbol from a link</button> -->
+<!-- 										<button id="sencselpc">Select Symbol from PC</button> -->
+<!-- 										<input type="text" class="symbbox"> -->
+<!-- 									</div> -->
+									<br><br>
+									<button id="oksenc">Ok</button>
+								</div>									
+								<div id="editsymbwindow2" title="Edit Symbol Type">								
+										<label>Select field:</label>
+										<input type="text" id="catcolumbox" size="15" value="">
+									<br><br>
+										<label>Normalization:</label> 
+										<select id="normalcat">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>	
+									<br><br>
+										<input type="checkbox" id="checkinterval">
+										<label for="checkinterval">Interval</label>
+<!-- 										<label>Interval:</label>  -->
+<!-- 											<select id="intervalcat" disabled> -->
+<!-- 												<option value="-1">0</option> -->
+<!-- 												<option value="1">1</option> -->
+<!-- 												<option value="2">2</option> -->
+<!-- 												<option value="3">3</option> -->
+<!-- 												<option value="4">4</option> -->
+<!-- 												<option value="5">5</option> -->
+<!-- 											</select> -->
+									<br><br>
+										<label id="lblcolorramp">Color Ramp</label>
+										<div class="colorramp"></div>
+									<br><br>
+									<label>Select cell field:</label>
+									<div id="catcellbox">											
+										<input type="text" id="txtcellbox" size="15" value="">
+										<button id="editcell1">Properties</button>
+									</div>																				
+															<div id="editcellwindow" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell">
+																<label>Select symbol</label>
+																<select id="symbsenccell">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell">Fill Colour</button>
+															<button id="pickersencbordcell">Stroke Colour</button>
+															<button id="pickersencbordseccell">Border Colour</button> <br><br>									
+															<div id="sencstrokecell">
+																<label for="txtsencstrokecell">Stroke</label>
+																<input type="text" id="txtsencstrokecell" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell">
+																<label for="txtsencsizecell">Symbol Size</label>
+																<input type="text" id="txtsencsizecell" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell">
+																<label for="txtsencstrokeseccell">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell"></div>
+															</div>
+															<div id="senctranspcell">
+																<label for="txtsenctranspcell">Transparency</label>
+																<input type="text" id="txtsenctranspcell" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell"></div>
+															</div>
+															<div style = "display: none" id="senctranspincell">
+																<label for="txtsenctranspincell">Transparency</label>
+																<input type="text" id="txtsenctranspincell" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell"></div>
+															</div> <br>
+															<input type="checkbox" id="dashlinecell">
+															<label for="dashlinecell">Dash Array:</label>
+															<div style="display: none" id="linedashcell">										
+																<select class="dashcell">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>																	
+																</select>
+																<select class="arraycell">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat1">Ok</button>
+														</div>														
+									<br>
+									<div id="celdas">										
+											<div id="catcellbox2">	
+												<input type="text" id="txtcellbox2" size="15" value="">
+												<button id="editcell2">Properties</button>	
+											</div>
+											<div id="editcellwindow2" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell2">
+																<label>Select symbol</label>
+																<select id="symbsenccell2">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell2">Fill Colour</button>
+															<button id="pickersencbordcell2">Stroke Colour</button>
+															<button id="pickersencbordseccell2">Border Colour</button> <br><br>									
+															<div id="sencstrokecell2">
+																<label for="txtsencstrokecell2">Stroke</label>
+																<input type="text" id="txtsencstrokecell2" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell2"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell2">
+																<label for="txtsencsizecell2">Symbol Size</label>
+																<input type="text" id="txtsencsizecell2" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell2"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell2">
+																<label for="txtsencstrokeseccell2">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell2" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell2"></div>
+															</div>
+															<div id="senctranspcell2">
+																<label for="txtsenctranspcell2">Transparency</label>
+																<input type="text" id="txtsenctranspcell2" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell2"></div>
+															</div> 
+															<div style = "display: none" id="senctranspincell2">
+																<label for="txtsenctranspincell2">Transparency</label>
+																<input type="text" id="txtsenctranspincell2" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell2"></div>
+															</div><br>
+															<input type="checkbox" id="dashlinecell2">
+															<label for="dashlinecell2">Dash Array:</label>
+															<div style="display: none" id="linedashcell2">										
+																<select class="dashcell2">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>																	
+																</select>
+																<select class="arraycell2">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat2">Ok</button>
+														</div>
+											<br>
+											<div id="catcellbox3">	
+												<input  type="text" id="txtcellbox3" size="15" value="">
+												<button id="editcell3">Properties</button>
+											</div>
+											<div id="editcellwindow3" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell3">
+																<label>Select symbol</label>
+																<select id="symbsenccell3">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell3">Fill Colour</button>
+															<button id="pickersencbordcell3">Stroke Colour</button>
+															<button id="pickersencbordseccell3">Border Colour</button> <br><br>									
+															<div id="sencstrokecell3">
+																<label for="txtsencstrokecell3">Stroke</label>
+																<input type="text" id="txtsencstrokecell3" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell3"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell3">
+																<label for="txtsencsizecell3">Symbol Size</label>
+																<input type="text" id="txtsencsizecell3" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell3"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell3">
+																<label for="txtsencstrokeseccell3">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell3" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell3"></div>
+															</div>
+															<div id="senctranspcell3">
+																<label for="txtsenctranspcell3">Transparency</label>
+																<input type="text" id="txtsenctranspcell3" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell3"></div>
+															</div> 
+															<div style = "display: none" id="senctranspincell3">
+																<label for="txtsenctranspincell3">Transparency</label>
+																<input type="text" id="txtsenctranspincell3" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell3"></div>
+															</div><br>
+															<input type="checkbox" id="dashlinecell3">
+															<label for="dashlinecell3">Dash Array:</label>
+															<div style="display: none" id="linedashcell3">										
+																<select class="dashcell3">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>																	
+																</select>
+																<select class="arraycell3">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat3">Ok</button>
+														</div>										
+											<br>
+											<div id="cellinter">
+												<div id="catcellbox4">	
+													<input  type="text" id="txtcellbox4" size="15" value="">
+													<button id="editcell4">Properties</button>
+												</div>
+												<div id="editcellwindow4" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell4">
+																<label>Select symbol</label>
+																<select id="symbsenccell4">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell4">Fill Colour</button>
+															<button id="pickersencbordcell4">Stroke Colour</button>
+															<button id="pickersencbordseccell4">Border Colour</button> <br><br>									
+															<div id="sencstrokecell4">
+																<label for="txtsencstrokecell4">Stroke</label>
+																<input type="text" id="txtsencstrokecell4" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell4"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell4">
+																<label for="txtsencsizecell4">Symbol Size</label>
+																<input type="text" id="txtsencsizecell4" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell4"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell4">
+																<label for="txtsencstrokeseccell4">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell4" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell4"></div>
+															</div>
+															<div id="senctranspcell3">
+																<label for="txtsenctranspcell4">Transparency</label>
+																<input type="text" id="txtsenctranspcell4" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell4"></div>
+															</div>
+															<div style = "display: none" id="senctranspincell4">
+																<label for="txtsenctranspincell4">Transparency</label>
+																<input type="text" id="txtsenctranspincell4" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell4"></div>
+															</div> <br>
+															<input type="checkbox" id="dashlinecell4">
+															<label for="dashlinecell4">Dash Array:</label>
+															<div style="display: none" id="linedashcell4">										
+																<select class="dashcell4">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>																	
+																</select>
+																<select class="arraycell4">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat4">Ok</button>
+														</div>
+												<br>
+												<div id="catcellbox5">	
+													<input  type="text" id="txtcellbox5" size="15" value="">
+													<button id="editcell5">Properties</button>
+												<br><br>
+												</div>
+												<div id="editcellwindow5" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell5">
+																<label>Select symbol</label>
+																<select id="symbsenccell5">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell5">Fill Colour</button>
+															<button id="pickersencbordcell5">Stroke Colour</button>
+															<button id="pickersencbordseccell5">Border Colour</button> <br><br>									
+															<div id="sencstrokecell5">
+																<label for="txtsencstrokecell5">Stroke</label>
+																<input type="text" id="txtsencstrokecell5" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell5"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell5">
+																<label for="txtsencsizecell5">Symbol Size</label>
+																<input type="text" id="txtsencsizecell5" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell5"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell5">
+																<label for="txtsencstrokeseccell5">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell5" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell5"></div>
+															</div>
+															<div id="senctranspcell5">
+																<label for="txtsenctranspcell5">Transparency</label>
+																<input type="text" id="txtsenctranspcell5" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell5"></div>
+															</div>
+															<div style = "display: none" id="senctranspincell5">
+																<label for="txtsenctranspincell5">Transparency</label>
+																<input type="text" id="txtsenctranspincell5" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell5"></div>
+															</div> <br>
+															<input type="checkbox" id="dashlinecell5">
+															<label for="dashlinecell5">Dash Array:</label>
+															<div style="display: none" id="linedashcell5">										
+																<select class="dashcell5">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>
+																<select class="arraycell5">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat5">Ok</button>
+														</div>	
+											</div>	
+									</div>									
+<!-- 									<input type="checkbox" id="selsecfieldcat"><label for="selsecfieldcat">Second field:</label> -->
+<!-- 									<h2>	 -->
+<!-- 										<div style="display: none" id="divsecfield"> -->
+<!-- 										<input type="text" id="catseccolumbox" size="15 value="> -->
+<!-- 										<label>Select cell field:</label> -->
+<!-- 										<input type="text" id="catcellsecbox" size="15" value="">			 -->
+<!-- 										</div> -->
+<!-- 									</h2><br> -->									
+	<!-- 									<h5> -->
+	<!-- 										<input type="checkbox" id="defintervalcat"> <label for="defintervalcat">Definir Intervalo de colores</label> -->
+	<!-- 										<div id="intercolorcat"> -->
+	<!-- 											 -->
+	<!-- 										</div>											 -->
+	<!-- 									</h5> -->
+									<button id="okcat">Ok</button>
+								</div>
+								<div id="editsymbwindow3" title="Edit Symbol Type">									
+										<label>Select field:</label>
+										<input type="text" id="bubcolumbox" size="15" value="">												
+									<br><br>
+										<label>Select minimum value:</label>
+										<input type="text" id="bubcellboxmin" size="15" value="">	
+									<br><br>
+										<label>Select medium value:</label>
+										<input type="text" id="bubcellboxmed" size="15" value="">
+									<br><br>	
+										<label>Select maximum value:</label>
+										<input type="text" id="bubcellboxmax" size="15" value="">
+									<br><br>
+<!-- 										<label class="lblcolorramp">Color Ramp</label> -->
+<!-- 										<div class="colorramp"></div><br> -->
+										<button id="propbub">Properties</button> 
+											<div id="propbubwindow" title="Properties">
+												<div id="bubstroke">
+													<label for="txtbubstroke">Stroke</label>
+													<input type="text" id="txtbubstroke" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+													<div id="bubstrokeslider"></div>
+												</div>
+												<div id="bubtransp">
+													<label for="txtbubtransp">Transparency</label>
+													<input type="text" id="txtbubtransp" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+												<div id="bubtranspslider"></div>
+												</div> <br>
+												<button id="pickerbubrell">Fill Colour</button>
+												<button id="pickerbubbord">Stroke Colour</button><br><br>
+												<label for="symbbubsize">Symbol Size:</label>												
+													<div id="bubminsize">
+														<label for="txtbubmin">Minimum Size:</label>
+														<input type="text" id="txtbubmin" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+														<div id="bubminslider"></div>
+													</div>
+													<div id="bubmaxsize">
+														<label for="txtbubmax">Maximum Size</label>
+														<input type="text" id="txtbubmax" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+														<div id="bubmaxslider"></div>
+													</div><br>													
+												<button id="okbubwindow">Ok</button>
+											
+										</div>	
+										<!--<label class="lblcolorramp">Color Ramp:</label>
+										<div class="colorramp"></div><br>-->						
+									<br><br>
+									<button id="okbub">Ok</button>
+								</div>
+								
+								
+								
+<!--                                               Ferramentas de Simbologia Cluster e Mapas de Calor                                               -->				
+<!-- 								<div id="editsymbwindow4" title="Edit Symbol Type">
+									<h1 class="ui-widget">
+										<label>Group:</label> 
+										<select id="groupclus">
+											<option value="">Select group...</option>
+										</select>
+									</h1>
+									<div id="clusstroke">
+										<label for="txtclusstroke">Stroke</label>
+										<input type="text" id="txtclusstroke" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="clusstrokeslider"></div>
+									</div>
+									<h2 class="ui-widget">
+										<label>Cluster Font label</label> 
+										<select id="fontclus">
+											<option value="">Select group...</option>
+										</select>
+									</h2><br>
+									<h3 class="ui-widget">
+										<label>Size:</label> 
+										<select id="minsizeclus">
+											<option value="">Select group...</option>
+										</select>
+									</h3>
+									<h4 class="ui-widget">
+										<label></label> 
+										<select id="maxsizeclus">
+											<option value="">Select group...</option>
+										</select>
+									</h4>									
+									<div id="cluscolours">
+										<button id="pickerclusrell">Fill Colour</button>
+										<button id="pickerclusbord">Stroke Colour</button>
+										<button id="pickercluslbl">label Colour</button>
+									</div><br>
+									<button id="okclus">Ok</button>
+								</div>
+								<div id="editsymbwindow5" title="Edit Symbol Type">
+									<h1 class="ui-widget">
+										<label>Select Field:</label> 
+										<select id="mcselfield">
+											<option value="">Select group...</option>
+										</select>
+									</h1>	
+									<h2 class="ui-widget">
+										<label>Radio:</label> 
+										<select id="mcradio">
+											<option value="">Select group...</option>
+										</select>
+									</h2>	
+									<h3 class="ui-widget">
+										<label>Cell Height</label> 
+										<select id="mccellh">
+											<option value="">Select group...</option>
+										</select>
+									</h3>	
+									<h4 class="ui-widget">
+										<label>Cell Width</label> 
+										<select id="mccellw">
+											<option value="">Select group...</option>
+										</select>
+									</h4>	
+									<h5 class="ui-widget"> 
+											<label id="lblcolorramp">Color Ramp</label>
+											<div class="colorramp"></div>
+									</h5><br>
+									<button id="okmc">Ok</button>
+								</div>                                                                                  -->  
+								
+								
+								
+								<button class="oksymb">Ok</button>
+							</div>							
+						<h6>
+							<input type="checkbox" id="checklbltype">
+							<label for="checklbltype">Label</label>
+						</h6>
+						<button class="editlbl" disabled>Edit Label</button>						
+						<div id="editlblwindow" title="Edit Label">							
+								<div id="lbloptions" class="ui-widget">	
+									<h1 class="ui-widget">								
+										<label>Tamaño:</label> 
+										<select id="lblsize">
+											<option value="-1">Select size...</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+										</select>
+									</h1>
+									<h2>
+									<input type="checkbox" id="checklblN"> <label for="checklblN"><b>N</b></label> 
+									<input type="checkbox" id="checklblI"> <label for="checklblI"><i>I</i></label> 
+									<input type="checkbox" id="checklblS"> <label for="checklblS" style="font-style: oblique;">O</label>
+									</h2>
+									<h3 class="ui-widget">
+										<label class="family">Family:</label> 
+										<select id="lblfamily" class="ui-widget">
+											<option value="-1">Select a family...</option>
+											<option value="Arial">Arial</option>
+											<option value="Comic">Comic</option>
+											<option value="Times Roman">Times Roman</option>
+										</select> 
+									</h3>
+								<br><br>																
+										<label>Column:</label>
+										<input type="text" id="lblcolumbox" size="15" value="">																		
+								<br><br>		
+									<label id="abc">AaBbCc</label>
+									<button id="picker">Show Color Picker</button>
+<!-- 									<div id="transp"> -->
+<!-- 										<label for="txttransp">Transparency</label>  -->
+<!-- 										<input type="text" id="txttransp" readonly style="border: 0; color: #f6931f; font-weight: bold;"> -->
+<!-- 										<div id="transpslider"></div> -->
+<!-- 									</div> -->
+									<br><label id="vazio"></label>
+									<input type="checkbox" id="showlblscl">
+									<label for="showlblscl">Label Scale Control</label>
+									<div style="display: none" id="escalaslbl">
+										<h1 class="ui-widget">
+											<label>Minimum Scale:</label> 
+											<select id="escalaminlbl">
+												<option value="-1">Select one...</option>
+												<option value="0">0</option>
+												<option value="1000">1.000</option>
+												<option value="2500">2.500</option>
+												<option value="5000">5.000</option>
+												<option value="10000">10.000</option>
+												<option value="20000">20.000</option>
+												<option value="30000">30.000</option>
+												<option value="40000">40.000</option>
+												<option value="50000">50.000</option>
+												<option value="60000">60.000</option>
+												<option value="70000">70.000</option>
+												<option value="80000">80.000</option>
+												<option value="90000">90.000</option>
+												<option value="100000">100.000</option>
+												<option value="200000">200.000</option>
+												<option value="250000">250.000</option>
+												<option value="500000">500.000</option>
+												<option value="1000000">1.000.000</option>
+											</select>
+										</h1>
+										<h2 class="ui-widget">
+											<label>Maximum Scale:</label> 
+											<select id="escalamaxlbl">
+												<option value="-1">Select one...</option>
+												<option value="0">0</option>
+												<option value="1000">1.000</option>
+												<option value="2500">2.500</option>
+												<option value="5000">5.000</option>
+												<option value="10000">10.000</option>
+												<option value="20000">20.000</option>
+												<option value="30000">30.000</option>
+												<option value="40000">40.000</option>
+												<option value="50000">50.000</option>
+												<option value="60000">60.000</option>
+												<option value="70000">70.000</option>
+												<option value="80000">80.000</option>
+												<option value="90000">90.000</option>
+												<option value="100000">100.000</option>
+												<option value="200000">200.000</option>
+												<option value="250000">250.000</option>
+												<option value="500000">500.000</option>
+												<option value="1000000">1.000.000</option>
+											</select>
+										</h2>
+									</div>
+								</div>
+							<button class="oklbl">Ok</button>
+						</div>					
+					</div>					
+					<!--<button style ="top: 10px"class="cerrar">Eliminar</button>-->				
+				</div>
+			</div>
+		</div>
+		
+		<div id="rulemasterfilha" style="display: none" style='height:auto;'>
+			<p>New Scale<p>
+					<div id="escalasfilha">
+						<h3 class="ui-widget">
+							<label>Minimum Scale:</label> 
+							<select class="escalaminfilha">
+								<option value="-1">Select one...</option>
+								<option value="0">0</option>
+								<option value="1000">1.000</option>
+								<option value="2500">2.500</option>
+								<option value="5000">5.000</option>
+								<option value="10000">10.000</option>
+								<option value="20000">20.000</option>
+								<option value="30000">30.000</option>
+								<option value="40000">40.000</option>
+								<option value="50000">50.000</option>
+								<option value="60000">60.000</option>
+								<option value="70000">70.000</option>
+								<option value="80000">80.000</option>
+								<option value="90000">90.000</option>
+								<option value="100000">100.000</option>
+								<option value="200000">200.000</option>
+								<option value="250000">250.000</option>
+								<option value="500000">500.000</option>
+								<option value="1000000">1.000.000</option>
+							</select>
+						</h3>
+						<h4 class="ui-widget">
+							<label>Maximum Scale:</label> 
+							<select class="escalamaxfilha">
+								<option value="-1">Select one...</option>
+								<option value="0">0</option>
+								<option value="1000">1.000</option>
+								<option value="2500">2.500</option>
+								<option value="5000">5.000</option>
+								<option value="10000">10.000</option>
+								<option value="20000">20.000</option>
+								<option value="30000">30.000</option>
+								<option value="40000">40.000</option>
+								<option value="50000">50.000</option>
+								<option value="60000">60.000</option>
+								<option value="70000">70.000</option>
+								<option value="80000">80.000</option>
+								<option value="90000">90.000</option>
+								<option value="100000">100.000</option>
+								<option value="200000">200.000</option>
+								<option value="250000">250.000</option>
+								<option value="500000">500.000</option>
+								<option value="1000000">1.000.000</option>
+							</select>
+						</h4>
+					</div>
+					<div id="simb_lblfilha">
+						<h5>
+							<label>Simbolized by:</label>
+							<button class="simbfilha">Choose type</button>
+						</h5>
+						<div id="simbwindowfilha" title="Choose type" >
+							<form>
+								<div id="radiofilha">
+									<input type="radio" id="sencillofilha" name="radiofilha"	checked="checked"><label for="sencillofilha">Simple</label>
+									<input type="radio" id="categoriasfilha" name="radiofilha"><label for="categoriasfilha">Category</label> 
+									<input type="radio" id="bubblefilha" name="radiofilha"><label for="bubblefilha">Bubble</label>
+								</div>
+							</form> <br>
+							<button id="editsymbfilha">Edit Symbol Type</button> <br><br>							
+							<div id="editsymbwindowfilha" title="Edit Symbol Type">
+									<div style = "display: none" id="ptnstipusfilha">
+										<label>Select symbol</label>
+										<select id="symbsencfilha">
+											<option value="-1">Select group...</option>
+											<option value="star">Star</option>
+											<option value="circle">Circle</option>
+											<option value="square">Square</option>
+											<option value="square">Diamond</option>
+											<option value="triangle">Triangle</option>
+											<option value="x">X</option>
+											<option value="mais">+</option>
+										</select>
+									</div><br>
+									<button id="pickersencrellfilha">Fill Colour</button>
+									<button id="pickersencbordfilha">Stroke Colour</button> 
+									<button id="pickersencbordsecfilha">Border Colour</button><br><br>									
+									<div id="sencstrokefilha">
+										<label for="txtsencstrokefilha">Stroke</label>
+										<input type="text" id="txtsencstrokefilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="sencstrokesliderfilha"></div>
+									</div>
+									<div style = "display: none" id="sencsizefilha">
+										<label for="txtsencsizefilha">Symbol Size</label>
+										<input type="text" id="txtsencsizefilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="sencsizesliderfilha"></div>
+									</div>
+									<div style = "display: none" id="sencstrokesecfilha">
+										<label for="txtsencstrokesecfilha">Line Border</label>
+										<input type="text" id="txtsencstrokesecfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="sencstrokesecsliderfilha"></div>
+									</div>
+									<div id="senctranspfilha">
+										<label for="txtsenctranspfilha">Transparency</label>
+										<input type="text" id="txtsenctranspfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="senctranspsliderfilha"></div>
+									</div> 
+									<div style = "display: none" id="senctranspinfilha">
+										<label for="txtsenctranspinfilha">Transparency</label>
+										<input type="text" id="txtsenctranspinfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+										<div id="senctranspinsliderfilha"></div>
+									</div><br>
+									<input type="checkbox" id="dashlinefilha">
+									<label for="dashlinefilha">Dash Array:</label>
+									<div style="display: none" id="linedashfilha">										
+										<select class="dashfilha">
+											<option value="0">0</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+										</select>
+										<select class="arrayfilha">
+											<option value="0">0</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+										</select>									
+									</div>
+									<br><br>
+									<button id="oksencfilha">Ok</button>
+								</div>	
+								<div id="editsymbwindow2filha" title="Edit Symbol Type">								
+										<label>Select field:</label>
+										<input type="text" id="catcolumboxfilha" size="15" value="">
+									<br><br>
+										<label>Normalization:</label> 
+										<select id="normalcatfilha">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+										</select>	
+									<br><br>
+									<input type="checkbox" id="checkintervalfilha">
+									<label for="checkintervalfilha">Interval</label>										
+									<br><br>
+										<label id="lblcolorrampfilha">Color Ramp</label>
+										<div class="colorrampfilha"></div>
+									<br><br>
+									<label>Select cell field:</label>
+									<div id="catcellboxfilha">											
+										<input type="text" id="txtcellboxfilha" size="15" value="">
+										<button id="editcell1filha">Properties</button>
+									</div>																				
+															<div id="editcellwindowfilha" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscellfilha">
+																<label>Select symbol</label>
+																<select id="symbsenccellfilha">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcellfilha">Fill Colour</button>
+															<button id="pickersencbordcellfilha">Stroke Colour</button>
+															<button id="pickersencbordseccellfilha">Border Colour</button> <br><br>									
+															<div id="sencstrokecellfilha">
+																<label for="txtsencstrokecellfilha">Stroke</label>
+																<input type="text" id="txtsencstrokecellfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercellfilha"></div>
+															</div>
+															<div style = "display: none" id="sencsizecellfilha">
+																<label for="txtsencsizecellfilha">Symbol Size</label>
+																<input type="text" id="txtsencsizecellfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercellfilha"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccellfilha">
+																<label for="txtsencstrokeseccellfilha">Line Border</label>
+																<input type="text" id="txtsencstrokeseccellfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercellfilha"></div>
+															</div>
+															<div id="senctranspcellfilha">
+																<label for="txtsenctranspcellfilha">Transparency</label>
+																<input type="text" id="txtsenctranspcellfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercellfilha"></div>
+															</div> 
+															<div style = "display: none" id="senctranspincellfilha">
+																<label for="txtsenctranspincellfilha">Transparency</label>
+																<input type="text" id="txtsenctranspincellfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercellfilha"></div>
+															</div><br>
+															<input type="checkbox" id="dashlinecellfilha">
+															<label for="dashlinecellfilha">Dash Array:</label>
+															<div style="display: none" id="linedashcellfilha">										
+																<select class="dashcellfilha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>
+																<select class="arraycellfilha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat1filha">Ok</button>
+														</div>														
+									<br>
+									<div id="catcellbox2filha">	
+										<input type="text" id="txtcellbox2filha" size="15" value="">
+										<button id="editcell2filha">Properties</button>	
+									</div>
+									<div id="editcellwindow2filha" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell2filha">
+																<label>Select symbol</label>
+																<select id="symbsenccell2filha">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell2filha">Fill Colour</button>
+															<button id="pickersencbordcell2filha">Stroke Colour</button>
+															<button id="pickersencbordseccell2filha">Border Colour</button>  <br><br>									
+															<div id="sencstrokecell2filha">
+																<label for="txtsencstrokecell2filha">Stroke</label>
+																<input type="text" id="txtsencstrokecell2filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell2filha"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell2filha">
+																<label for="txtsencsizecell2filha">Symbol Size</label>
+																<input type="text" id="txtsencsizecell2filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell2filha"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell2filha">
+																<label for="txtsencstrokeseccell2filha">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell2filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell2filha"></div>
+															</div>
+															<div id="senctranspcell2filha">
+																<label for="txtsenctranspcell2filha">Transparency</label>
+																<input type="text" id="txtsenctranspcell2filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell2filha"></div>
+															</div> 
+															<div style = "display: none" id="senctranspincell2filha">
+																<label for="txtsenctranspincell2filha">Transparency</label>
+																<input type="text" id="txtsenctranspincell2filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell2filha"></div>
+															</div><br>
+															<input type="checkbox" id="dashlinecell2filha">
+															<label for="dashlinecell2filha">Dash Array:</label>
+															<div style="display: none" id="linedashcell2filha">										
+																<select class="dashcell2filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>
+																<select class="arraycell2filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat2filha">Ok</button>
+														</div>											
+									<br>
+									<div id="catcellbox3filha">	
+										<input  type="text" id="txtcellbox3filha" size="15" value="">
+										<button id="editcell3filha">Properties</button>
+									</div>
+									<div id="editcellwindow3filha" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell3filha">
+																<label>Select symbol</label>
+																<select id="symbsenccell3filha">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell3filha">Fill Colour</button>
+															<button id="pickersencbordcell3filha">Stroke Colour</button>
+															<button id="pickersencbordseccell3filha">Border Colour</button>  <br><br>									
+															<div id="sencstrokecell3filha">
+																<label for="txtsencstrokecell3filha">Stroke</label>
+																<input type="text" id="txtsencstrokecell3filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell3filha"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell3filha">
+																<label for="txtsencsizecell3filha">Symbol Size</label>
+																<input type="text" id="txtsencsizecell3filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell3filha"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell3filha">
+																<label for="txtsencstrokeseccell3filha">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell3filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell3filha"></div>
+															</div>
+															<div id="senctranspcell3filha">
+																<label for="txtsenctranspcell3filha">Transparency</label>
+																<input type="text" id="txtsenctranspcell3filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell3filha"></div>
+															</div> 
+															<div style = "display: none" id="senctranspincell3filha">
+																<label for="txtsenctranspincell3filha">Transparency</label>
+																<input type="text" id="txtsenctranspincell3filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell3filha"></div>
+															</div><br>
+															<input type="checkbox" id="dashlinecell3filha">
+															<label for="dashlinecell3filha">Dash Array:</label>
+															<div style="display: none" id="linedashcell3filha">										
+																<select class="dashcell3filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																
+																</select>
+																<select class="arraycell3filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat3filha">Ok</button>
+														</div>
+									<br>
+										<div id="cellinterfilha">
+											<div id="catcellbox4filha">	
+												<input  type="text" id="txtcellbox4filha" size="15" value="">
+												<button id="editcell4filha">Properties</button>
+											</div>
+												<div id="editcellwindow4filha" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell4filha">
+																<label>Select symbol</label>
+																<select id="symbsenccell4filha">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell4filha">Fill Colour</button>
+															<button id="pickersencbordcell4filha">Stroke Colour</button>
+															<button id="pickersencbordseccell4filha">Border Colour</button>  <br><br>									
+															<div id="sencstrokecell4filha">
+																<label for="txtsencstrokecell4filha">Stroke</label>
+																<input type="text" id="txtsencstrokecell4filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell4filha"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell4filha">
+																<label for="txtsencsizecell4filha">Symbol Size</label>
+																<input type="text" id="txtsencsizecell4filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell4filha"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell4filha">
+																<label for="txtsencstrokeseccell4filha">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell4filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell4filha"></div>
+															</div>
+															<div id="senctranspcell4filha">
+																<label for="txtsenctranspcell4filha">Transparency</label>
+																<input type="text" id="txtsenctranspcell4filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell4filha"></div>
+															</div> 
+															<div style = "display: none" id="senctranspincell4filha">
+																<label for="txtsenctranspincell4filha">Transparency</label>
+																<input type="text" id="txtsenctranspincell4filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell4filha"></div>
+															</div><br>
+															<input type="checkbox" id="dashlinecell4filha">
+															<label for="dashlinecell4filha">Dash Array:</label>
+															<div style="display: none" id="linedashcell4filha">										
+																<select class="dashcell4filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>
+																<select class="arraycell4filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat4filha">Ok</button>
+														</div>
+											<br>
+											<div id="catcellbox5filha">	
+												<input  type="text" id="txtcellbox5filha" size="15" value="">
+												<button id="editcell5filha">Properties</button>											
+											</div>											
+												<div id="editcellwindow5filha" title="Edit Symbol Type">
+															<div style = "display: none" id="ptnstipuscell5filha">
+																<label>Select symbol</label>
+																<select id="symbsenccell5filha">
+																	<option value="-1">Select group...</option>
+																	<option value="star">Star</option>
+																	<option value="circle">Circle</option>
+																	<option value="square">Square</option>
+																	<option value="square">Diamond</option>
+																	<option value="triangle">Triangle</option>
+																	<option value="x">X</option>
+																	<option value="mais">+</option>
+																</select>
+															</div><br>
+															<button id="pickersencrellcell5filha">Fill Colour</button>
+															<button id="pickersencbordcell5filha">Stroke Colour</button>
+															<button id="pickersencbordseccell5filha">Border Colour</button>  <br><br>									
+															<div id="sencstrokecell5filha">
+																<label for="txtsencstrokecell5filha">Stroke</label>
+																<input type="text" id="txtsencstrokecell5filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokeslidercell5filha"></div>
+															</div>
+															<div style = "display: none" id="sencsizecell5filha">
+																<label for="txtsencsizecell5filha">Symbol Size</label>
+																<input type="text" id="txtsencsizecell5filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencsizeslidercell5filha"></div>
+															</div>
+															<div style = "display: none" id="sencstrokeseccell5filha">
+																<label for="txtsencstrokeseccell5filha">Line Border</label>
+																<input type="text" id="txtsencstrokeseccell5filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="sencstrokesecslidercell5filha"></div>
+															</div>
+															<div id="senctranspcell5filha">
+																<label for="txtsenctranspcell5filha">Transparency</label>
+																<input type="text" id="txtsenctranspcell5filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspslidercell5filha"></div>
+															</div><div style = "display: none" id="senctranspincellfilha">
+																<label for="txtsenctranspincell5filha">Transparency</label>
+																<input type="text" id="txtsenctranspincell5filha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+																<div id="senctranspinslidercell5filha"></div>
+															</div> <br>															
+															<input type="checkbox" id="dashlinecell5filha">
+															<label for="dashlinecell5filha">Dash Array:</label>
+															<div style="display: none" id="linedashcell5filha">										
+																<select class="dashcell5filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																
+																</select>
+																<select class="arraycell5filha">
+																	<option value="-1">0</option>
+																	<option value="2">2</option>
+																	<option value="3">3</option>
+																	<option value="4">4</option>
+																	<option value="5">5</option>
+																	<option value="6">6</option>
+																	<option value="7">7</option>
+																	<option value="8">8</option>
+																	<option value="9">9</option>
+																	<option value="10">10</option>
+																	
+																</select>									
+															</div>						
+															<br><br>
+															<button id="okcat5filha">Ok</button>
+														</div>
+											<br><br>	
+										</div>	
+									<button id="okcatfilha">Ok</button>
+								</div>
+								
+
+
+
+								<div id="editsymbwindow3filha" title="Edit Symbol Type">									
+										<label>Select field:</label>
+										<input type="text" id="bubcolumboxfilha" size="15" value="">	
+									<br><br>
+										<label>Select minimum value:</label>
+										<input type="text" id="bubcellboxminfilha" size="15" value="">	
+									<br><br>
+										<label>Select medium value:</label>
+										<input type="text" id="bubcellboxmedfilha" size="15" value="">
+									<br><br>	
+										<label>Select maximum value:</label>
+										<input type="text" id="bubcellboxmaxfilha" size="15" value="">
+									<br><br>
+										<button id="propbubfilha">Properties</button> 
+											<div id="propbubwindowfilha" title="Properties">
+												<div id="bubstrokefilha">
+													<label for="txtbubstrokefilha">Stroke</label>
+													<input type="text" id="txtbubstrokefilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+													<div id="bubstrokesliderfilha"></div>
+												</div>
+												<div id="bubtranspfilha">
+													<label for="txtbubtranspfilha">Transparency</label>
+													<input type="text" id="txtbubtranspfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+												<div id="bubtranspsliderfilha"></div>
+												</div> <br>
+												<button id="pickerbubrellfilha">Fill Colour</button>
+												<button id="pickerbubbordfilha">Stroke Colour</button><br><br>
+												<label for="symbbubsizefilha">Symbol Size:</label>												
+													<div id="bubminsizefilha">
+														<label for="txtbubminfilha">Minimum Size:</label>
+														<input type="text" id="txtbubminfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+														<div id="bubminsliderfilha"></div>
+													</div>
+													<div id="bubmaxsizefilha">
+														<label for="txtbubmaxfilha">Maximum Size</label>
+														<input type="text" id="txtbubmaxfilha" readonly style="border: 0; color: #f6931f; font-weight: bold;">
+														<div id="bubmaxsliderfilha"></div>
+													</div><br>													
+												<button id="okbubwindowfilha">Ok</button>											
+										</div>			
+									<br><br>
+									<button id="okbubfilha">Ok</button>
+								</div>
+
+								
+							<button class="oksymbfilha">Ok</button>
+						</div>					
+						<h6>
+							<input type="checkbox" id="checklbltypefilha">
+							<label for="checklbltypefilha">Label</label>
+						</h6>
+						<button class="editlblfilha" disabled>Edit Label</button>						
+						<div id="editlblwindowfilha" title="Edit Label">							
+								<div id="lbloptionsfilha" class="ui-widget">	
+									<h1 class="ui-widget">								
+										<label>Tamaño:</label> 
+										<select id="lblsizefilha">
+											<option value="-1">Select size...</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
+											<option value="12">12</option>
+											<option value="14">14</option>
+											<option value="16">16</option>
+											<option value="17">17</option>
+											<option value="18">18</option>
+											<option value="19">19</option>
+											<option value="20">20</option>
+										</select>
+									</h1>
+									<h2>
+									<input type="checkbox" id="checklblNfilha"> <label for="checklblNfilha"><b>N</b></label> 
+									<input type="checkbox" id="checklblIfilha"> <label for="checklblIfilha"><i>I</i></label> 
+									<input type="checkbox" id="checklblSfilha"> <label for="checklblSfilha" style="font-style: oblique;">O</label>
+									</h2>
+									<h3 class="ui-widget">
+										<label class="familyfilha">Family:</label> 
+										<select id="lblfamilyfilha" class="ui-widget">
+											<option value="-1">Select a family...</option>
+											<option value="Arial">Arial</option>
+											<option value="Comic">Comic</option>
+											<option value="Times Roman">Times Roman</option>
+										</select> 
+									</h3>
+								<br><br>																
+										<label>Column:</label>
+										<input type="text" id="lblcolumboxfilha" size="15" value="">	
+																	
+								<br><br>		
+									<label id="abcfilha">AaBbCc</label>
+									<button id="pickerfilha">Show Color Picker</button>
+									<br><br>
+									<input type="checkbox" id="showlblsclfilha">
+									<label for="showlblsclfilha">Label Scale Control</label>
+									<div style="display: none" id="escalaslblfilha">
+										<h1 class="ui-widget">
+											<label>Minimum Scale:</label> 
+											<select id="escalaminlblfilha">
+												<option value="-1">Select one...</option>
+												<option value="0">0</option>
+												<option value="1000">1.000</option>
+												<option value="2500">2.500</option>
+												<option value="5000">5.000</option>
+												<option value="10000">10.000</option>
+												<option value="20000">20.000</option>
+												<option value="30000">30.000</option>
+												<option value="40000">40.000</option>
+												<option value="50000">50.000</option>
+												<option value="60000">60.000</option>
+												<option value="70000">70.000</option>
+												<option value="80000">80.000</option>
+												<option value="90000">90.000</option>
+												<option value="100000">100.000</option>
+												<option value="200000">200.000</option>
+												<option value="250000">250.000</option>
+												<option value="500000">500.000</option>
+												<option value="1000000">1.000.000</option>
+											</select>
+										</h1>
+										<h2 class="ui-widget">
+											<label>Maximum Scale:</label> 
+											<select id="escalamaxlblfilha">
+												<option value="-1">Select one...</option>
+												<option value="0">0</option>
+												<option value="1000">1.000</option>
+												<option value="2500">2.500</option>
+												<option value="5000">5.000</option>
+												<option value="10000">10.000</option>
+												<option value="20000">20.000</option>
+												<option value="30000">30.000</option>
+												<option value="40000">40.000</option>
+												<option value="50000">50.000</option>
+												<option value="60000">60.000</option>
+												<option value="70000">70.000</option>
+												<option value="80000">80.000</option>
+												<option value="90000">90.000</option>
+												<option value="100000">100.000</option>
+												<option value="200000">200.000</option>
+												<option value="250000">250.000</option>
+												<option value="500000">500.000</option>
+												<option value="1000000">1.000.000</option>
+											</select>
+										</h2>
+									</div>
+								</div>
+								<br>
+							<button class="oklblfilha">Ok</button>
+						</div>						
+					</div>					
+								
+								
+				</div>
+				
+ 		<div id="addnewscale"> 
+ 			<!--<button id="addnsc">Add New Scale</button> -->
+			<input type="checkbox" id="addnsc">
+			<label for="addnsc">Add New Scale</label><br>
+ 		</div> <br> 
+<!-- 		<input type="checkbox" id="chkapplyfilter"> -->
+<!-- 		<label for="chkapplyfilter">Apply Filter</label><br>			 -->
+<!-- 			<div style="display: none" id="applyfilter"> -->
+<!-- 				<h1> -->
+<!-- 					<select id="chkqrum" class="ui-widget"> -->
+<!-- 						<option value="">Select group...</option> -->
+<!-- 					</select> -->
+<!-- 				</h1> -->
+<!-- 				<h2> -->
+<!-- 					<select id="chkqrdois" class="ui-widget"> -->
+<!-- 						<option value="">Select group...</option> -->
+<!-- 					</select>  -->
+<!-- 				</h2><br>					 -->
+<!-- 			<input type="checkbox" id="chkfilterman"> -->
+<!-- 			<label for="chkfilterman">Filtro Manual</label> <br> <br> -->
+<!-- 				<div style="display: none" id="filterbox"> -->
+<!-- 					<textarea class="filtromanual" rows="3" cols="60"></textarea><br> <br> -->
+<!-- 				</div>	 -->
+<!-- 			</div>							 -->
+			<br><br>			
+		<button id="ok">Ok</button>
+	</div>
+	
+<!-- Formulario para geraçao do arquivo final -->
+	<form id="formGenerate" method="post" action="http://giscorp.sitep.com/generate_sld.php" target="_blank">
+      <input id="formGenerateStyle" type="hidden" name="STYLE" value=""/>
+      <input id="formGenerateName" type="hidden" name="name" value=""/>
+	</form>
+	
+</body>
+</html>
+
+
